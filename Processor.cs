@@ -1,4 +1,7 @@
-﻿using System.Management;
+﻿// Copyright (c) 2018 Jason Harvey
+// Created by Jason Harvey AKA CommandoRambo.
+// MIT License
+using System.Management;
 
 namespace SIV
 {

@@ -1,5 +1,6 @@
-﻿// Copyright © 2018 JRV Solutions.
+﻿// Copyright (c) 2018 Jason Harvey
 // Created by Jason Harvey AKA CommandoRambo.
+// MIT License
 using System;
 using System.ComponentModel;
 using System.Management;

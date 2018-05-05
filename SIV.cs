@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright (c) 2018 Jason Harvey
+// Created by Jason Harvey AKA CommandoRambo.
+// MIT License
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
