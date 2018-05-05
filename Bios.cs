@@ -6,7 +6,7 @@ using System.Management;
 
 namespace SIV
 {
-    public partial class SIV
+    public partial class SystemInfomation
     {
         private void Bios()
         {
@@ -17,20 +17,19 @@ namespace SIV
             foreach (ManagementObject mo in moSearcherInfo.Get())
             {
                 // Manufacturer.
-                BiosManufacturer = GetValue(mo, "Manufacturer");
+                BiosManufacturer = GetOutput(GetValue(mo, "Manufacturer"));
 
                 // Name.
-                BiosName = GetValue(mo, "Name");
+                BiosName = GetOutput(GetValue(mo, "Name"));
 
                 // Release date.
-                string date = GetValue(mo, "ReleaseDate");
-                BiosReleaseDate = ConvertDateTime(date);
+                BiosReleaseDate = GetOutput(ConvertDateTime(GetValue(mo, "ReleaseDate")));
 
                 // Serial Number.
-                BiosSerialNumber = GetValue(mo, "SerialNumber");
+                BiosSerialNumber = GetOutput(GetValue(mo, "SerialNumber"));
 
                 // Status.
-                BiosStatus = GetValue(mo, "Status");
+                BiosStatus = GetOutput(GetValue(mo, "Status"));
 
                 // Version.
                 int major = Convert.ToUInt16(GetValue(mo, "EmbeddedControllerMajorVersion"));

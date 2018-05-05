@@ -2,7 +2,7 @@
 
 namespace SIV
 {
-    public partial class SIV
+    public partial class SystemInfomation
     {
         private void Graphics()
         {

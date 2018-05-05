@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace SIV
 {
-    public partial class SIV
+    public partial class SystemInfomation
     {
         #region METHODS
         private void Battery()
@@ -58,6 +58,7 @@ namespace SIV
         #region PROPERTIES
         [Description("The type of chemistry used in the battery.")]
         public string BatteryChemistry { get; set; }
+
         [Description("The manufacture date of the battery.")]
         public string BatteryManufactureDate { get; set; }
 

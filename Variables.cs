@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Management;
+using Microsoft.Win32;
 
 namespace SIV
 {
-    public partial class SIV
+    public partial class SystemInfomation
     {
         private SelectQuery sqlQuery = new SelectQuery();
         private ManagementObjectSearcher moSearcherInfo;
         private string[] stopSeperator = new String[] { "." };
+        private string nullValue = "Unavailable or Not Applicable";
+        
+        private const string SUBKEY = @"SOFTWARE\Microsoft\Windows NT\CurrentVersion\";
 
-
+        private RegistryKey outputRegKey = Registry.LocalMachine.OpenSubKey(SUBKEY, false);
 
         private Dictionary<int, string> dProductTypes = new Dictionary<int, string>();
         private Dictionary<int, string> dSystemType = new Dictionary<int, string>();

@@ -5,13 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Management;
+using Microsoft.Win32;
 
 namespace SIV
 {
-    public partial class SIV
+    public partial class SystemInfomation
     {
         #region VARIABLES
-        
+
         #endregion
 
         #region METHODS
@@ -25,16 +26,24 @@ namespace SIV
             foreach (ManagementObject mo in moSearcherInfo.Get())
             {
                 // Windows Name.
-                OSName = GetValue(mo, "Caption");
+                OSName = GetOutput(GetValue(mo, "Caption"));
+
                 // Windows Version.
                 string temp = GetValue(mo, "Version");
                 string[] tempSplit = temp.Split(stopSeperator, StringSplitOptions.RemoveEmptyEntries);
-                OSVersion = tempSplit[0] + "." + tempSplit[1];
+                
+                OSVersion = temp != String.Empty ? tempSplit[0] + "." + tempSplit[1] : nullValue;
+
                 // Windows Build Number.
-                OSBuildNumber = GetValue(mo, "BuildNumber");
-                // Windows Revision Number.
-                OSBuildRevision = "";
+                OSBuildNumber = GetOutput(GetValue(mo, "BuildNumber"));
+
             }
+
+            // Windows Revision Number.
+            OSBuildRevision = GetOutput(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Default).OpenSubKey(SUBKEY).GetValue("UBR").ToString());
+            
+            // Product Key.
+            OSProductKey = GetOutput(Decode(GetProductKey("DigitalProductId")));
         }
 
         #endregion
@@ -51,6 +60,9 @@ namespace SIV
 
         [Description("Operating System build revision number.")]
         public string OSBuildRevision { get; set; }
+
+        [Description("Get the Product Key.")]
+        public string OSProductKey { get; set; }
         #endregion
     }
 }
