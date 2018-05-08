@@ -20,9 +20,6 @@ namespace SIV
                 // Manufacturer.
                 BiosManufacturer = GetOutput(GetValue(mo, "Manufacturer"));
 
-                // Name.
-                BiosName = GetOutput(GetValue(mo, "Name"));
-
                 // Release date.
                 BiosReleaseDate = GetOutput(ConvertDateTime(GetValue(mo, "ReleaseDate")));
 
@@ -36,6 +33,9 @@ namespace SIV
                 int major = Convert.ToUInt16(GetValue(mo, "EmbeddedControllerMajorVersion"));
                 int minor = Convert.ToUInt16(GetValue(mo, "EmbeddedControllerMinorVersion"));
                 BiosVersion = "V" + major.ToString() + "." + minor.ToString("00");
+
+                // Name.
+                BiosName = GetOutput(GetValue(mo, "Name"));
             }
         }
 

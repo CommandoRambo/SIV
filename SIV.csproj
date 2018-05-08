@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Audio.cs" />
+    <Compile Include="SoundDevice.cs" />
     <Compile Include="BaseBoard.cs" />
     <Compile Include="Battery.cs" />
     <Compile Include="Bios.cs" />

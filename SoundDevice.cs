@@ -7,7 +7,7 @@ namespace SIV
 {
     public partial class SystemInfomation
     {
-        private void Audio()
+        private void SoundDevice()
         {
             sqlQuery = new SelectQuery("SELECT * FROM Win32_OperatingSystem");
 
@@ -18,7 +18,5 @@ namespace SIV
 
             }
         }
-
-
     }
 }
